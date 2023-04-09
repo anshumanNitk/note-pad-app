@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 const NoteMain = () => {
   const navigate = useNavigate();
   let params = useParams();
-  let [note, setNote] = useState(null)
+  let [note, setNote] = useState('');
 
+  /* eslint-disable */
   useEffect(() => {
       getNote()
   }, [params.id])
 
+  /* eslint-enable */
 
   
   let getNote = async () => {
@@ -62,7 +64,7 @@ const NoteMain = () => {
 
 
   let clickHandle = () => {
-
+    
     console.log('NOTE:', note)
 
     if (params.id !== 'new' && note.body === '') {
@@ -71,7 +73,7 @@ const NoteMain = () => {
     else if (params.id !== 'new') {
         updateNote()
     } 
-    else if (params.id === 'new' && note.body !== null) {
+    else if (params.id === 'new' && note.body !== '') {
         createNote()
     }
     
@@ -85,7 +87,7 @@ const NoteMain = () => {
           <ArrowLeft onClick={clickHandle} />
         </h3>
         {params.id !== 'new' ? 
-        (<button onClick={deleteNote}> delete</button>)
+        (<button onClick={deleteNote}>delete</button>)
         :
         (<button onClick={clickHandle}>done</button>)}
       </div>
