@@ -62,7 +62,7 @@ const NoteMain = () => {
 
 
   let clickHandle = () => {
-    
+
     console.log('NOTE:', note)
 
     if (params.id !== 'new' && note.body === '') {
@@ -85,7 +85,7 @@ const NoteMain = () => {
           <ArrowLeft onClick={clickHandle} />
         </h3>
         {params.id !== 'new' ? 
-        (<button onClick={deleteNote}>delete</button>)
+        (<button onClick={deleteNote}> delete</button>)
         :
         (<button onClick={clickHandle}>done</button>)}
       </div>
